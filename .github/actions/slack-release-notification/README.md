@@ -1,18 +1,18 @@
 # Slack Release Notification Action
 
-This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel with visual indicators (✅ for success, ❌ for failure). Works correctly even when used with `if: always()`.
+This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel with visual indicators (✅ for success, ❌ for failure). Requires `if: always()` to ensure the action runs always regardless of job status.
 
 ## Usage
 
 ```yaml
 - name: Notify Slack Release Status
   if: always() # This is important to ensure the action runs always regardless of job status
-  uses: your-org/github-actions/.github/actions/slack-release-notification@main
+  uses: odigos-io/ci-core/.github/actions/slack-release-notification@main
   with:
     webhook-url: ${{ secrets.ODIGOS_RELEASE_STATUS_WEBHOOK_URL }}
     success-description: "Odigos collector linux packages released successfully"
     failure-description: "ERROR: failed to publish odigos collector linux packages"
-    tag: ${{ steps.extract_tag.outputs.tag }}
+    tag: ${{ env.TAG }}
 ```
 
 ## Inputs
