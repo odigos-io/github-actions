@@ -1,6 +1,6 @@
 # Slack Release Notification Action
 
-This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel with visual indicators (✅ for success, ❌ for failure).
+This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel with visual indicators (✅ for success, ❌ for failure). Works correctly even when used with `if: always()`.
 
 ## Usage
 
@@ -28,7 +28,7 @@ This action sends Slack notifications based on job status for release updates. I
 ### Success Message
 ```json
 {
-  "description": "Your success message",
+  "description": "✅ Your success message",
   "tag": "v1.0.0"
 }
 ```
@@ -37,7 +37,7 @@ This action sends Slack notifications based on job status for release updates. I
 ```json
 {
   "link": "https://github.com/owner/repo/actions/runs/123456789",
-  "description": "Your failure message",
+  "description": "❌ Your failure message",
   "tag": "v1.0.0"
 }
 ```
