@@ -1,6 +1,6 @@
 # Slack Release Notification Action
 
-This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel.
+This action sends Slack notifications based on job status for release updates. It automatically detects success/failure states and sends appropriate messages to your Slack channel with visual indicators (✅ for success, ❌ for failure).
 
 ## Usage
 

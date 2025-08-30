@@ -24,7 +24,7 @@ runs:
       run: |
         curl -X POST -H 'Content-type: application/json' \
           --data '{
-            "description": "${{ inputs.success-description }}",
+            "description": "✅ ${{ inputs.success-description }}",
             "tag": "${{ inputs.tag }}"
           }' \
           ${{ inputs.webhook-url }}
@@ -39,7 +39,7 @@ runs:
         curl -X POST -H 'Content-type: application/json' \
           --data '{
             "link": "https://github.com/$REPO/actions/runs/$RUN_ID",
-            "description": "${{ inputs.failure-description }}",
+            "description": "❌ ${{ inputs.failure-description }}",
             "tag": "${{ inputs.tag }}"
           }' \
           ${{ inputs.webhook-url }}
