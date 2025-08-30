@@ -6,9 +6,10 @@ This action sends Slack notifications based on job status for release updates. I
 
 ```yaml
 - name: Notify Slack Release Status
+  if: always() # This is important to ensure the action runs always regardless of job status
   uses: your-org/github-actions/.github/actions/slack-release-notification@main
   with:
-    webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+    webhook-url: ${{ secrets.ODIGOS_RELEASE_STATUS_WEBHOOK_URL }}
     success-description: "Odigos collector linux packages released successfully"
     failure-description: "ERROR: failed to publish odigos collector linux packages"
     tag: ${{ steps.extract_tag.outputs.tag }}
@@ -18,7 +19,7 @@ This action sends Slack notifications based on job status for release updates. I
 
 | Input | Description | Required | Default |
 |-------|-------------|----------|---------|
-| `webhook-url` | Slack webhook URL | Yes | - |
+| `webhook-url` | Slack webhook URL (pulled from odigos secrets in ci) | Yes | - |
 | `success-description` | Description message for successful releases | Yes | "Release completed successfully" |
 | `failure-description` | Description message for failed releases | Yes | "Release failed" |
 | `tag` | Release tag | No | - |
