@@ -44,7 +44,7 @@ runs:
       run: |
         GIT_CONFIG_FILE="/tmp/odigos.gitconfig"
         echo "[ + ] Configuring git to use STS token for private repo access"
-        git config --file=$GIT_CONFIG_FILE url."https://x:${GITHUB_TOKEN}@github.com/${{ inputs.scope }}".insteadOf "https://github.com/${{ inputs.scope }}"
+        git config --file=$GIT_CONFIG_FILE --add url."https://x:${GITHUB_TOKEN}@github.com/${{ inputs.scope }}".insteadOf "https://github.com/${{ inputs.scope }}"
         # Tell git to use this config file globally
         git config --global include.path /tmp/odigos.gitconfig
         echo "[ + ] Git configured to use STS token for private repo access"
