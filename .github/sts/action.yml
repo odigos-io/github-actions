@@ -12,7 +12,7 @@ inputs:
     description: "Identity to request from STS"
     required: true
   output-git-config:
-    description: "If true, configures git to use the STS token for authentication"
+    description: "If false, will not output a git config file"
     required: false
     default: "true"
 
